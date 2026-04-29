@@ -534,6 +534,111 @@
             .tier-num { width: 40px; height: 40px; font-size: 1.25rem; }
         }
 
+        /* ── Interactive calculator ──────────────────────────────── */
+        .calculator {
+            background: linear-gradient(135deg, var(--telus-purple-deep) 0%, var(--telus-purple) 100%);
+            border-radius: var(--r-lg);
+            padding: var(--s-7);
+            margin: var(--s-7) 0;
+            color: white;
+            box-shadow: 0 16px 48px rgba(75,40,109,0.20);
+        }
+        .calculator-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            text-align: center;
+            margin-bottom: var(--s-6);
+        }
+        .calculator-grid {
+            display: grid;
+            gap: var(--s-5);
+            margin-bottom: var(--s-6);
+        }
+        .calc-row {
+            display: grid;
+            grid-template-columns: 1fr 110px;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "label  value"
+                "slider value";
+            gap: var(--s-2) var(--s-4);
+            padding: var(--s-3) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+            align-items: center;
+        }
+        .calc-row:last-child { border-bottom: none; }
+        .calc-row label {
+            grid-area: label;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.92);
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calc-row label code {
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.10);
+            color: rgba(255,255,255,0.75);
+            padding: 0.05em 0.5em;
+            border-radius: 4px;
+            margin-left: var(--s-3);
+        }
+        .calc-row input[type="range"] {
+            grid-area: slider;
+            width: 100%;
+            accent-color: var(--accent-green);
+            background: transparent;
+            cursor: pointer;
+        }
+        .calc-row output {
+            grid-area: value;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            text-align: right;
+            line-height: 1;
+        }
+        .calc-row.hilite { background: rgba(102,204,0,0.06); border-radius: var(--r-sm); padding: var(--s-3); }
+        .calc-row.hilite label { color: var(--accent-green); font-weight: 700; }
+        .calc-row.hilite output { font-size: 1.6rem; }
+        .calc-output {
+            text-align: center;
+            padding-top: var(--s-5);
+            border-top: 1.5px solid rgba(255,255,255,0.15);
+        }
+        .calc-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: var(--s-3);
+        }
+        .calc-value {
+            font-family: var(--font-mono);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            color: white;
+            margin-bottom: var(--s-3);
+            letter-spacing: -0.02em;
+        }
+        .calc-fineprint {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.78);
+        }
+        .calc-fineprint strong { color: var(--accent-green); font-weight: 700; }
+        @media (max-width: 880px) {
+            .calc-row { grid-template-columns: 1fr 80px; }
+            .calc-row output { font-size: 1.15rem; }
+            .calc-row.hilite output { font-size: 1.3rem; }
+        }
+
         /* ── Vignette ────────────────────────────────────────────── */
         .vignette {
             margin: var(--s-7) auto 0;
@@ -689,9 +794,6 @@
             <span>No second visit.</span>
         </h1>
         <p class="hero-tagline">A win for the customer. A win for the tech. A win for TELUS.</p>
-        <img src="screenshots/05_chat.png"
-             alt="Spectra Assistant chat panel showing grounded WiFi diagnosis with cited live readings"
-             class="hero-image">
     </div>
 </header>
 
@@ -824,29 +926,40 @@
             </div>
         </div>
 
-        <h3 style="margin-top: var(--s-7); text-align: center; font-weight: 600; font-size: 1rem; color: var(--text-muted); letter-spacing: 0.05em;">
-            Illustrative — N = 1,000, T = 30, R = 20%
-        </h3>
-
-        <div class="scenarios">
-            <div class="scenario sensitivity">
-                <div class="scenario-label">Sensitivity</div>
-                <div class="scenario-value">$900K</div>
-                <div class="scenario-detail">if I = 5%</div>
+        <div class="calculator">
+            <div class="calculator-header">Try your numbers</div>
+            <div class="calculator-grid">
+                <div class="calc-row">
+                    <label for="calc-n">Field tech count <code>N</code></label>
+                    <input type="range" id="calc-n" min="100" max="10000" step="50" value="1000" aria-describedby="calc-n-out">
+                    <output id="calc-n-out" for="calc-n">1,000</output>
+                </div>
+                <div class="calc-row">
+                    <label for="calc-t">Truck rolls / tech / month <code>T</code></label>
+                    <input type="range" id="calc-t" min="10" max="60" step="1" value="30" aria-describedby="calc-t-out">
+                    <output id="calc-t-out" for="calc-t">30</output>
+                </div>
+                <div class="calc-row">
+                    <label for="calc-r">Repeat-visit rate <code>R</code></label>
+                    <input type="range" id="calc-r" min="5" max="40" step="1" value="20" aria-describedby="calc-r-out">
+                    <output id="calc-r-out" for="calc-r">20%</output>
+                </div>
+                <div class="calc-row hilite">
+                    <label for="calc-i">Repeat-visit reduction Spectra Nova delivers <code>I</code></label>
+                    <input type="range" id="calc-i" min="0" max="50" step="1" value="10" aria-describedby="calc-i-out">
+                    <output id="calc-i-out" for="calc-i">10%</output>
+                </div>
             </div>
-            <div class="scenario conservative">
-                <div class="scenario-label">Conservative</div>
-                <div class="scenario-value">$1.8M</div>
-                <div class="scenario-detail">if I = 10%</div>
-            </div>
-            <div class="scenario stretch">
-                <div class="scenario-label stretch-label">Stretch</div>
-                <div class="scenario-value">$4.5M</div>
-                <div class="scenario-detail">if I = 25%</div>
+            <div class="calc-output">
+                <div class="calc-label">Annual truck-roll savings</div>
+                <div class="calc-value" id="calc-savings">$1.80M</div>
+                <div class="calc-fineprint">
+                    At <strong>$200/tech/yr</strong> licensing, payback in <strong id="calc-payback">1.3</strong> months.
+                </div>
             </div>
         </div>
 
-        <div class="scenario-note">All annual. Truck rolls only. Savings scale linearly with N — a 2,000-tech fleet doubles those numbers. Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds.</div>
+        <div class="scenario-note">Truck rolls only. Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds.</div>
 
         <div class="payback-box">
             <span class="payback-label">Payback math</span>
@@ -966,6 +1079,51 @@
         </div>
     </div>
 </section>
+
+<!-- ════════════════ CALCULATOR JS ════════════════ -->
+<script>
+    (function() {
+        var n = document.getElementById('calc-n');
+        var t = document.getElementById('calc-t');
+        var r = document.getElementById('calc-r');
+        var i = document.getElementById('calc-i');
+        if (!n || !t || !r || !i) return;
+        var nOut = document.getElementById('calc-n-out');
+        var tOut = document.getElementById('calc-t-out');
+        var rOut = document.getElementById('calc-r-out');
+        var iOut = document.getElementById('calc-i-out');
+        var savingsOut = document.getElementById('calc-savings');
+        var paybackOut = document.getElementById('calc-payback');
+
+        function fmtMoney(v) {
+            if (v >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
+            if (v >= 1e3) return '$' + Math.round(v/1e3) + 'K';
+            return '$' + Math.round(v);
+        }
+
+        function recalc() {
+            var nv = +n.value;
+            var tv = +t.value;
+            var rv = +r.value / 100;
+            var iv = +i.value / 100;
+            var savings = nv * tv * 12 * rv * iv * 250;
+            var licenseCost = nv * 200;
+            var payback = savings > 0 ? (licenseCost / savings) * 12 : Infinity;
+
+            nOut.textContent = nv.toLocaleString();
+            tOut.textContent = tv;
+            rOut.textContent = rv * 100 + '%';
+            iOut.textContent = iv * 100 + '%';
+            savingsOut.textContent = fmtMoney(savings) + ' / yr';
+            paybackOut.textContent = isFinite(payback) ? payback.toFixed(1) : '—';
+        }
+
+        [n, t, r, i].forEach(function(el) {
+            el.addEventListener('input', recalc);
+        });
+        recalc();
+    })();
+</script>
 
 <!-- ════════════════ FOOTER ════════════════ -->
 <footer>
