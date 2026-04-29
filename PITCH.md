@@ -21,8 +21,7 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 **In under five minutes, the tech sees:** signal at every room, channel congestion on every band, real download / upload speed, bufferbloat under load, every device on the subnet — distilled into a single 0–100 WiFi Health score with a customer-facing branded HTML report. **One screen. Ten panels. Zero modem-GUI dance.**
 
-**An assistant grounded in TELUS-specific knowledge.**
-338 curated entries across 16 categories — PureFibre plans, modems, devices, networking concepts. The assistant cites live readings, never invented ones. **Zero hallucination on matched queries**, verified against a 540-cell regression matrix on every change.
+**An assistant that reads the live network.** When a tech asks *"why is it slow?"*, the bot pulls the current RSSI, the channel congestion percentage, the last speed-test result, the dropped-device history — and answers with those exact numbers cited inline. It's not answering hypothetical questions. **It's answering *this* network's questions, in real time.** Backed by 338 curated TELUS-specific KB entries across 16 categories — **zero hallucination on matched queries**, verified against a 540-cell regression matrix on every change.
 
 **100 % offline by default.** Audited 8-endpoint allowlist. Passes a privacy review in one meeting.
 
@@ -81,7 +80,13 @@ LLMs hallucinate device specs, plan tiers, signal thresholds. Spectra Nova can't
 | Update cycle | Add a KB entry, ship it | Fine-tune (expensive) or re-prompt (fragile) |
 | Audit story | 540 cells passing on every commit | Opaque reasoning, no audit trail |
 
-If you want LLM-grade reasoning for novel queries, **a Claude API integration is already built in**. Per-tech opt-in via API key. Rate-limited and audit-logged. **Off by default** — entirely Spectra Nova's curated KB until a tech opts in.
+---
+
+## Or run Claude inside Spectra Nova
+
+**The Anthropic API integration is already wired.** Paste an API key and Claude takes over as the assistant — the *same live network context* flows through (RSSI, congestion, speed, device history). Sensitive details masked on the way out. Rate-limited. Audit-logged. **Off by default**, per-tech opt-in.
+
+For TELUS, that's **two deployment paths shipping today**: standalone (curated KB, fully offline, zero cloud) or Claude-augmented (frontier reasoning, customer data masked). One install, one license, one fleet — your techs choose.
 
 ---
 

@@ -493,6 +493,44 @@
             font-size: 0.85rem;
         }
 
+        /* ── Or run Claude ───────────────────────────────────────── */
+        .claude-callout {
+            background: linear-gradient(135deg, #1A1422 0%, #2D1F3D 50%, #4B286D 100%);
+            color: white;
+            padding: var(--s-7);
+            border-radius: var(--r-lg);
+            margin: var(--s-6) 0;
+            border: 1.5px solid rgba(255, 165, 0, 0.25);
+            box-shadow: 0 16px 48px rgba(75,40,109,0.30);
+        }
+        .claude-eyebrow {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: var(--s-5);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .claude-callout .claude-lede {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: var(--s-5);
+        }
+        .claude-callout .claude-paths {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.85);
+            padding: var(--s-4) var(--s-5);
+            background: rgba(255,255,255,0.06);
+            border-left: 3px solid #F5A623;
+            border-radius: 0 var(--r-sm) var(--r-sm) 0;
+            margin: 0;
+        }
+        .claude-callout strong { color: white; font-weight: 700; }
+        .claude-callout em { color: #F5A623; font-style: italic; }
+
         /* ── Integration tiers ────────────────────────────────────── */
         .tier-stack {
             display: flex;
@@ -941,7 +979,7 @@
     <div class="container">
         <h2>What Spectra Nova does</h2>
         <p><strong>In under five minutes, the tech sees:</strong> signal at every room, channel congestion on every band, real download / upload speed, bufferbloat under load, every device on the subnet — distilled into a single 0–100 WiFi Health score with a customer-facing branded HTML report. <strong>One screen. Ten panels. Zero modem-GUI dance.</strong></p>
-        <p><strong>An assistant grounded in TELUS-specific knowledge.</strong> 338 curated entries across 16 categories — PureFibre plans, modems, devices, networking concepts. The assistant cites live readings, never invented ones. <strong>Zero hallucination on matched queries</strong>, verified against a 540-cell regression matrix on every change.</p>
+        <p><strong>An assistant that reads the live network.</strong> When a tech asks <em>"why is it slow?"</em>, the bot pulls the current RSSI, the channel congestion percentage, the last speed-test result, the dropped-device history — and answers with those exact numbers cited inline. It's not answering hypothetical questions. <strong>It's answering <em>this</em> network's questions, in real time.</strong> Backed by 338 curated TELUS-specific KB entries across 16 categories — <strong>zero hallucination on matched queries</strong>, verified against a 540-cell regression matrix on every change.</p>
         <p><strong>100% offline by default.</strong> Audited 8-endpoint allowlist. Passes a privacy review in one meeting.</p>
         <p><strong>Owned, not rented.</strong> Source, KB, and CI pipeline transfer with the license. No SaaS dependency. No surprise data residency. No third-party telemetry. Built in-house, not subscribed-to.</p>
     </div>
@@ -1170,7 +1208,17 @@
                 </ul>
             </div>
         </div>
-        <p style="margin-top: var(--s-6);">If you want LLM-grade reasoning for novel queries, <strong>a Claude API integration is already built in</strong>. Per-tech opt-in via API key. Rate-limited and audit-logged. <strong>Off by default</strong> — entirely Spectra Nova's curated KB until a tech opts in.</p>
+    </div>
+</section>
+
+<!-- ════════════════ OR RUN CLAUDE ════════════════ -->
+<section>
+    <div class="container">
+        <div class="claude-callout">
+            <div class="claude-eyebrow">Or run Claude inside Spectra Nova</div>
+            <p class="claude-lede"><strong>The Anthropic API integration is already wired.</strong> Paste an API key and Claude takes over as the assistant — the <em>same live network context</em> flows through (RSSI, congestion, speed, device history). Sensitive details masked on the way out. Rate-limited. Audit-logged. <strong>Off by default</strong>, per-tech opt-in.</p>
+            <p class="claude-paths">For TELUS, that's <strong>two deployment paths shipping today</strong>: standalone (curated KB, fully offline, zero cloud) or Claude-augmented (frontier reasoning, customer data masked). One install, one license, one fleet — your techs choose.</p>
+        </div>
     </div>
 </section>
 
