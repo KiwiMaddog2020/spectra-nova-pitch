@@ -147,16 +147,25 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .hero-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--s-4);
+            max-width: 1200px;
+            margin: var(--s-7) auto 0;
+        }
         .hero-image {
             display: block;
-            max-width: min(100%, 1100px);
+            width: 100%;
             height: auto;
-            margin: var(--s-7) auto 0;
             border-radius: var(--r-md);
             box-shadow:
                 0 0 0 1px rgba(255,255,255,0.10),
-                0 30px 80px rgba(0,0,0,0.50),
-                0 8px 24px rgba(0,0,0,0.30);
+                0 20px 50px rgba(0,0,0,0.45),
+                0 6px 18px rgba(0,0,0,0.25);
+        }
+        @media (max-width: 880px) {
+            .hero-images { grid-template-columns: 1fr; gap: var(--s-3); }
         }
         .hero-caption {
             font-size: 0.85rem;
@@ -547,6 +556,95 @@
             .tier-num { width: 40px; height: 40px; font-size: 1.25rem; }
         }
 
+        /* ── Gallery ─────────────────────────────────────────────── */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--s-4);
+            margin-top: var(--s-6);
+        }
+        .gallery-tile {
+            cursor: pointer;
+            border-radius: var(--r-md);
+            overflow: hidden;
+            background: white;
+            border: 1.5px solid var(--border);
+            transition: all 0.25s;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .gallery-tile:hover {
+            transform: translateY(-3px);
+            border-color: var(--telus-purple-light);
+            box-shadow: 0 16px 36px rgba(75,40,109,0.18);
+        }
+        .gallery-tile img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: var(--bg-section);
+        }
+        .gallery-tile figcaption {
+            padding: var(--s-3) var(--s-4);
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+            background: white;
+            flex-grow: 1;
+        }
+        @media (max-width: 1000px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } }
+
+        /* Lightbox dialog */
+        #lightbox {
+            border: none;
+            padding: 0;
+            background: rgba(20, 12, 35, 0.96);
+            max-width: 95vw;
+            max-height: 95vh;
+            border-radius: var(--r-md);
+            color: white;
+            position: relative;
+        }
+        #lightbox::backdrop {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+        }
+        #lightbox img {
+            display: block;
+            max-width: 100%;
+            max-height: 80vh;
+            height: auto;
+            object-fit: contain;
+            border-radius: var(--r-md) var(--r-md) 0 0;
+        }
+        #lightbox figcaption {
+            padding: var(--s-4) var(--s-5);
+            font-size: 0.95rem;
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+        }
+        #lightbox-close {
+            position: absolute;
+            top: var(--s-3);
+            right: var(--s-3);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+        }
+        #lightbox-close:hover { background: rgba(255,255,255,0.30); }
+
         /* ── Interactive calculator ──────────────────────────────── */
         .calculator {
             background: linear-gradient(135deg, var(--telus-purple-deep) 0%, var(--telus-purple) 100%);
@@ -807,9 +905,14 @@
             <span>No second visit.</span>
         </h1>
         <p class="hero-tagline">A win for the customer. A win for the tech. A win for TELUS.</p>
-        <img src="screenshots/hero-light.jpg"
-             alt="Spectra Nova RF Spectrum view showing live bell curves of every detected WiFi network across the 5 GHz High band"
-             class="hero-image">
+        <div class="hero-images">
+            <img src="screenshots/hero-dark.jpg"
+                 alt="Spectra Nova RF Spectrum — dark mode, purple bell curves on near-black"
+                 class="hero-image" loading="eager">
+            <img src="screenshots/hero-light.jpg"
+                 alt="Spectra Nova RF Spectrum — alt theme, green bell curves on TELUS purple"
+                 class="hero-image" loading="eager">
+        </div>
         <p class="hero-caption">Live RF spectrum across every band · supports light + dark themes</p>
     </div>
 </header>
@@ -843,6 +946,52 @@
         <p><strong>Owned, not rented.</strong> Source, KB, and CI pipeline transfer with the license. No SaaS dependency. No surprise data residency. No third-party telemetry. Built in-house, not subscribed-to.</p>
     </div>
 </section>
+
+<!-- ════════════════ GALLERY ════════════════ -->
+<section class="section-tinted">
+    <div class="container">
+        <h2>What the tech sees</h2>
+        <p>Six panels, six different angles on the same diagnostic moment. Click any tile to open it full-size.</p>
+        <div class="gallery">
+            <figure class="gallery-tile">
+                <img src="screenshots/g1-environment.jpg"
+                     alt="WiFi Environment panel: channel-activity score, suggested channel, and channel overview grid">
+                <figcaption>WiFi Environment — channel congestion in 90 s, with a concrete recommendation.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+                <img src="screenshots/g2-device-monitor.jpg"
+                     alt="Device Monitor panel: 27 devices discovered with health-check recommendations citing specific IPs">
+                <figcaption>Device Monitor — surfaces the specific device behind a complaint, with a cited reason.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+                <img src="screenshots/g3-diagnostic.jpg"
+                     alt="Advanced Diagnostic Test in progress: 13-phase sweep with real numbers populating live">
+                <figcaption>Advanced Diagnostic — 13-phase sweep with real numbers populating as it runs.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+                <img src="screenshots/g4-speed-test.jpg"
+                     alt="Speed Test panel: download and upload gauges, ping and jitter readings">
+                <figcaption>Speed Test — multi-stream Cloudflare with bufferbloat detection on the same screen.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+                <img src="screenshots/g5-coverage.jpg"
+                     alt="Coverage Map setup screen: square-footage slider and unit-type picker">
+                <figcaption>Coverage Map — pick the unit type, walk the home, get per-room verdicts.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+                <img src="screenshots/g6-history.jpg"
+                     alt="Session History panel: WiFi Health Checks and Diagnostic Sweeps with before/after deltas">
+                <figcaption>Session History — every Health Check and Diagnostic saved, with before/after deltas.</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<dialog id="lightbox" aria-label="Gallery lightbox">
+    <button id="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-cap"></figcaption>
+</dialog>
 
 <!-- ════════════════ WIN × WIN × WIN ════════════════ -->
 <section class="section-tinted">
@@ -960,6 +1109,11 @@
                     <label for="calc-r">Repeat-visit rate <code>R</code></label>
                     <input type="range" id="calc-r" min="5" max="40" step="1" value="20" aria-describedby="calc-r-out">
                     <output id="calc-r-out" for="calc-r">20%</output>
+                </div>
+                <div class="calc-row">
+                    <label for="calc-c">Truck-roll cost <code>$</code></label>
+                    <input type="range" id="calc-c" min="100" max="600" step="10" value="250" aria-describedby="calc-c-out">
+                    <output id="calc-c-out" for="calc-c">$250</output>
                 </div>
                 <div class="calc-row hilite">
                     <label for="calc-i">Repeat-visit reduction Spectra Nova delivers <code>I</code></label>
@@ -1103,11 +1257,13 @@
         var n = document.getElementById('calc-n');
         var t = document.getElementById('calc-t');
         var r = document.getElementById('calc-r');
+        var c = document.getElementById('calc-c');
         var i = document.getElementById('calc-i');
-        if (!n || !t || !r || !i) return;
+        if (!n || !t || !r || !c || !i) return;
         var nOut = document.getElementById('calc-n-out');
         var tOut = document.getElementById('calc-t-out');
         var rOut = document.getElementById('calc-r-out');
+        var cOut = document.getElementById('calc-c-out');
         var iOut = document.getElementById('calc-i-out');
         var savingsOut = document.getElementById('calc-savings');
         var paybackOut = document.getElementById('calc-payback');
@@ -1122,23 +1278,48 @@
             var nv = +n.value;
             var tv = +t.value;
             var rv = +r.value / 100;
+            var cv = +c.value;
             var iv = +i.value / 100;
-            var savings = nv * tv * 12 * rv * iv * 250;
+            var savings = nv * tv * 12 * rv * iv * cv;
             var licenseCost = nv * 200;
             var payback = savings > 0 ? (licenseCost / savings) * 12 : Infinity;
 
             nOut.textContent = nv.toLocaleString();
             tOut.textContent = tv;
             rOut.textContent = rv * 100 + '%';
+            cOut.textContent = '$' + cv;
             iOut.textContent = iv * 100 + '%';
             savingsOut.textContent = fmtMoney(savings) + ' / yr';
             paybackOut.textContent = isFinite(payback) ? payback.toFixed(1) : '—';
         }
 
-        [n, t, r, i].forEach(function(el) {
+        [n, t, r, c, i].forEach(function(el) {
             el.addEventListener('input', recalc);
         });
         recalc();
+    })();
+
+    // Gallery lightbox
+    (function() {
+        var dlg = document.getElementById('lightbox');
+        var dlgImg = document.getElementById('lightbox-img');
+        var dlgCap = document.getElementById('lightbox-cap');
+        if (!dlg || !dlgImg) return;
+        document.querySelectorAll('.gallery-tile').forEach(function(tile) {
+            tile.addEventListener('click', function() {
+                var img = tile.querySelector('img');
+                var cap = tile.querySelector('figcaption');
+                dlgImg.src = img.dataset.full || img.src;
+                dlgImg.alt = img.alt;
+                if (dlgCap && cap) dlgCap.textContent = cap.textContent;
+                dlg.showModal();
+            });
+        });
+        dlg.addEventListener('click', function(e) {
+            if (e.target === dlg) dlg.close();
+        });
+        var close = document.getElementById('lightbox-close');
+        if (close) close.addEventListener('click', function() { dlg.close(); });
     })();
 </script>
 
