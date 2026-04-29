@@ -27,6 +27,8 @@ RF spectrum across all three bands · network list with signal history · channe
 
 **100 % offline by default.** Audited 8-endpoint allowlist. Passes a privacy review in one meeting.
 
+**Owned, not rented.** Source, KB, and CI pipeline transfer with the license. No SaaS dependency. No surprise data residency. No third-party telemetry. Built in-house, not subscribed-to.
+
 ---
 
 ## Win × Win × Win
@@ -78,7 +80,7 @@ LLMs hallucinate device specs, plan tiers, signal thresholds. Spectra Nova can't
 | Update cycle | Add a KB entry, ship it | Fine-tune (expensive) or re-prompt (fragile) |
 | Audit story | "540 cells passing on every commit" | "Trust me" |
 
-The roadmap includes an **opt-in LLM fallback** for novel queries — best of both, still offline.
+If you want LLM-grade reasoning for novel queries, **a Claude API integration is already built in**. Per-tech opt-in via API key. Rate-limited and audit-logged. **Off by default** — entirely Spectra Nova's curated KB until a tech opts in.
 
 ---
 
