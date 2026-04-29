@@ -149,11 +149,22 @@
         }
         .hero-image {
             display: block;
-            max-width: 100%;
+            max-width: min(100%, 1100px);
             height: auto;
-            margin: 0 auto;
+            margin: var(--s-7) auto 0;
             border-radius: var(--r-md);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.25);
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.10),
+                0 30px 80px rgba(0,0,0,0.50),
+                0 8px 24px rgba(0,0,0,0.30);
+        }
+        .hero-caption {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: rgba(255,255,255,0.70);
+            margin-top: var(--s-4);
+            text-align: center;
         }
 
         /* ── Five faults strip ────────────────────────────────────── */
@@ -796,6 +807,10 @@
             <span>No second visit.</span>
         </h1>
         <p class="hero-tagline">A win for the customer. A win for the tech. A win for TELUS.</p>
+        <img src="screenshots/hero-light.jpg"
+             alt="Spectra Nova RF Spectrum view showing live bell curves of every detected WiFi network across the 5 GHz High band"
+             class="hero-image">
+        <p class="hero-caption">Live RF spectrum across every band · supports light + dark themes</p>
     </div>
 </header>
 
