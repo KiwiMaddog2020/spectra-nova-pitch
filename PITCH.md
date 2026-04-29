@@ -119,6 +119,14 @@ Architecture and methodology available on request.
 
 ---
 
+## Built from the field
+
+I'm Kevin Madson. Nine years as a field technician before this. Every analyzer, every KB entry, every *"why does this break this way"* assumption in Spectra Nova traces back to a real customer visit — a real escalation chain, a real *"I knew it, but I couldn't prove it"* moment. **Built by a tech, for techs.**
+
+The bot doesn't know what it's like to walk into a customer's house at 4 PM on a Friday. **The person who built it does.**
+
+---
+
 ## The ask
 
 **Four weeks. One truck crew. A control group.** Instrument the queries and the outcomes. Measure first-time-fix rate and truck-roll time against the control. **Decide from the data.**

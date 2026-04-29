@@ -581,6 +581,56 @@
         }
         .payback-box strong { color: var(--accent-green-dark); font-weight: 700; }
 
+        /* ── Built from the field ────────────────────────────────── */
+        .from-the-field {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .field-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-green-dark);
+            margin-bottom: var(--s-5);
+            padding: var(--s-2) var(--s-4);
+            background: rgba(102,204,0,0.10);
+            border-radius: 100px;
+        }
+        .field-lede {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--telus-purple-deep);
+            margin-bottom: var(--s-5);
+            line-height: 1.3;
+        }
+        .from-the-field p {
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .field-tagline {
+            font-size: 1.4rem !important;
+            font-weight: 700;
+            color: var(--telus-purple);
+            margin: var(--s-6) 0 !important;
+            padding: var(--s-3) var(--s-5);
+            border-top: 2px solid var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+            display: inline-block;
+        }
+        .field-closer {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: var(--s-5);
+        }
+        .field-closer strong {
+            color: var(--accent-green-dark);
+            font-style: normal;
+        }
+
         /* ── CTA fine print ──────────────────────────────────────── */
         .cta-fineprint {
             font-size: 0.95rem;
@@ -889,6 +939,19 @@
             <div class="badge"><strong>0</strong> compiler warnings on Release</div>
         </div>
         <p style="margin-top: var(--s-6);">Built solo. Independent. Ready to license. Architecture and methodology available on request.</p>
+    </div>
+</section>
+
+<!-- ════════════════ BUILT FROM THE FIELD ════════════════ -->
+<section class="section-soft">
+    <div class="container">
+        <div class="from-the-field">
+            <div class="field-eyebrow">Built from the field</div>
+            <p class="field-lede">I'm <strong>Kevin Madson</strong>. <strong>Nine years</strong> as a field technician before this.</p>
+            <p>Every analyzer, every KB entry, every <em>"why does this break this way"</em> assumption in Spectra Nova traces back to a real customer visit — a real escalation chain, a real <em>"I knew it, but I couldn't prove it"</em> moment.</p>
+            <p class="field-tagline"><strong>Built by a tech, for techs.</strong></p>
+            <p class="field-closer">The bot doesn't know what it's like to walk into a customer's house at 4 PM on a Friday. <strong>The person who built it does.</strong></p>
+        </div>
     </div>
 </section>
 
