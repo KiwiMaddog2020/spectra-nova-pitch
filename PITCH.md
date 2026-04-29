@@ -19,8 +19,7 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 ## What Spectra Nova does
 
-**One screen. Live data. Ten panels.**
-RF spectrum across all three bands · network list with signal history · channel congestion analysis · ping / speed / bufferbloat · room-by-room coverage walk · subnet device scan · network tools · history · WiFi Health Check (a single 0–100 score with a customer-facing branded HTML report).
+**In under five minutes, the tech sees:** signal at every room, channel congestion on every band, real download / upload speed, bufferbloat under load, every device on the subnet — distilled into a single 0–100 WiFi Health score with a customer-facing branded HTML report. **One screen. Ten panels. Zero modem-GUI dance.**
 
 **An assistant grounded in TELUS-specific knowledge.**
 338 curated entries across 16 categories — PureFibre plans, modems, devices, networking concepts. The assistant cites live readings, never invented ones. **Zero hallucination on matched queries**, verified against a 540-cell regression matrix on every change.
@@ -35,11 +34,11 @@ RF spectrum across all three bands · network list with signal history · channe
 
 |  | **Customer** | **Technician** | **TELUS** |
 |---|---|---|---|
-| **Speed** | Less time on the call | Less guessing | Shorter handle time |
-| **Confidence** | Sees real numbers, not "trust me" | Diagnosis with citations | Lower escalation rate |
-| **Closure** | Branded report after every visit | Knows what was changed and why | Consistent ticket documentation |
-| **Repeat visits** | One trip, not two | No "I missed it last time" call-backs | **Direct truck-roll cost reduction** |
-| **Training** | Same quality of service from any tech | Senior-level reasoning embedded in the tool | Faster new-hire ramp; tribal knowledge captured |
+| **Confidence** | Sees real numbers, not "trust me" | Diagnosis with citations, not guesses | Lower escalation rate · consistent documentation |
+| **Closure** | Branded report after every visit | Walks out knowing what changed and why | Shorter handle time · fewer callbacks |
+| **Repeat visits** | One trip — not two | No "I missed it last time" tickets | **Direct truck-roll cost reduction** |
+
+> *Tuesday afternoon. The customer has called three times this month about the same disconnect. The tech opens Spectra Nova, runs the Health Check, and walks out twenty minutes later with a printed report explaining exactly what was changed and why. **The customer doesn't call back.***
 
 ---
 
@@ -49,7 +48,7 @@ RF spectrum across all three bands · network list with signal history · channe
 
 **Annual truck-roll savings = N × T × 12 × R × I × $250**
 
-- `N` — your field tech count *(TELUS reports ~25,200 Canadian employees in 2025; field-tech subset is a fraction)*
+- `N` — your field tech count *(TELUS: ~25.2K Canadian employees, 2025; field-tech subset is a fraction)*
 - `T` — truck rolls per tech per month *(industry typical: 20–40)*
 - `R` — current repeat-visit rate *(industry typical: 15–25%)*
 - `I` — repeat-visit reduction Spectra Nova delivers — **the pilot measures this**
@@ -62,6 +61,8 @@ RF spectrum across all three bands · network list with signal history · channe
 - `I` = 25% (stretch): **$4.5 M / year**
 
 Savings scale linearly with `N`. A 2,000-tech fleet doubles those numbers.
+
+**Payback math:** at $200/tech/year licensing *(illustrative; real terms negotiated post-pilot)*, the conservative scenario clears its own cost in **under two months** on a 1,000-tech fleet. Pure savings thereafter.
 
 **Truck rolls only.** Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds. **Whatever `I` turns out to be, plug it back in. The answer is yours, not ours.**
 
@@ -76,10 +77,9 @@ LLMs hallucinate device specs, plan tiers, signal thresholds. Spectra Nova can't
 |  | **Spectra Nova** | **On-device LLM** |
 |---|---|---|
 | Hallucination on matched queries | Zero | Real risk |
-| Determinism | Regression-testable | Stochastic |
 | Privacy | 100 % offline, 8 audited endpoints | Same |
 | Update cycle | Add a KB entry, ship it | Fine-tune (expensive) or re-prompt (fragile) |
-| Audit story | "540 cells passing on every commit" | "Trust me" |
+| Audit story | 540 cells passing on every commit | Opaque reasoning, no audit trail |
 
 If you want LLM-grade reasoning for novel queries, **a Claude API integration is already built in**. Per-tech opt-in via API key. Rate-limited and audit-logged. **Off by default** — entirely Spectra Nova's curated KB until a tech opts in.
 
@@ -122,6 +122,8 @@ Architecture and methodology available on request.
 ## The ask
 
 **Four weeks. One truck crew. A control group.** Instrument the queries and the outcomes. Measure first-time-fix rate and truck-roll time against the control. **Decide from the data.**
+
+**The pilot is free for the first crew.** License terms negotiated post-pilot from real measured `I`. Email below — happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
 
 ---
 

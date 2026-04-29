@@ -534,6 +534,64 @@
             .tier-num { width: 40px; height: 40px; font-size: 1.25rem; }
         }
 
+        /* ── Vignette ────────────────────────────────────────────── */
+        .vignette {
+            margin: var(--s-7) auto 0;
+            max-width: 720px;
+            padding: var(--s-5);
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--text);
+            line-height: 1.65;
+            border-top: 2px solid var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+        }
+        .vignette em { font-style: italic; color: var(--text-muted); }
+        .vignette strong {
+            display: block;
+            margin-top: var(--s-3);
+            font-style: normal;
+            font-weight: 700;
+            color: var(--accent-green-dark);
+            font-size: 1.2rem;
+        }
+
+        /* ── Payback box ─────────────────────────────────────────── */
+        .payback-box {
+            background: rgba(102,204,0,0.08);
+            border: 1.5px solid var(--accent-green);
+            border-radius: var(--r-md);
+            padding: var(--s-5);
+            margin: var(--s-6) 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        .payback-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-green-dark);
+            margin-right: var(--s-3);
+            padding: var(--s-1) var(--s-3);
+            background: white;
+            border-radius: 100px;
+        }
+        .payback-box strong { color: var(--accent-green-dark); font-weight: 700; }
+
+        /* ── CTA fine print ──────────────────────────────────────── */
+        .cta-fineprint {
+            font-size: 0.95rem;
+            max-width: 680px;
+            margin: 0 auto var(--s-5);
+            opacity: 0.92;
+            color: rgba(255,255,255,0.92);
+            line-height: 1.6;
+        }
+        .cta-fineprint strong { color: var(--accent-green); font-weight: 700; }
+
         /* ── Responsive ───────────────────────────────────────────── */
         @media (max-width: 880px) {
             .www-grid, .scenarios, .vs-grid { grid-template-columns: 1fr; }
@@ -610,7 +668,7 @@
 <section>
     <div class="container">
         <h2>What Spectra Nova does</h2>
-        <p><strong>One screen. Live data. Ten panels.</strong> RF spectrum across all three bands · network list with signal history · channel congestion analysis · ping / speed / bufferbloat · room-by-room coverage walk · subnet device scan · network tools · history · WiFi Health Check (a single 0–100 score with a customer-facing branded HTML report).</p>
+        <p><strong>In under five minutes, the tech sees:</strong> signal at every room, channel congestion on every band, real download / upload speed, bufferbloat under load, every device on the subnet — distilled into a single 0–100 WiFi Health score with a customer-facing branded HTML report. <strong>One screen. Ten panels. Zero modem-GUI dance.</strong></p>
         <p><strong>An assistant grounded in TELUS-specific knowledge.</strong> 338 curated entries across 16 categories — PureFibre plans, modems, devices, networking concepts. The assistant cites live readings, never invented ones. <strong>Zero hallucination on matched queries</strong>, verified against a 540-cell regression matrix on every change.</p>
         <p><strong>100% offline by default.</strong> Audited 8-endpoint allowlist. Passes a privacy review in one meeting.</p>
         <p><strong>Owned, not rented.</strong> Source, KB, and CI pipeline transfer with the license. No SaaS dependency. No surprise data residency. No third-party telemetry. Built in-house, not subscribed-to.</p>
@@ -633,11 +691,9 @@
                 </div>
                 <h3>Customer</h3>
                 <ul>
-                    <li>Less time on the call</li>
                     <li>Sees real numbers, not "trust me"</li>
                     <li>Branded report after every visit</li>
                     <li>One trip — not two</li>
-                    <li>Same quality from any tech</li>
                 </ul>
             </div>
 
@@ -650,11 +706,9 @@
                 </div>
                 <h3>Technician</h3>
                 <ul>
-                    <li>Less guessing</li>
-                    <li>Diagnosis with citations</li>
-                    <li>Knows what was changed and why</li>
-                    <li>No "I missed it last time" callbacks</li>
-                    <li>Senior-level reasoning embedded in the tool</li>
+                    <li>Diagnosis with citations, not guesses</li>
+                    <li>Walks out knowing what changed and why</li>
+                    <li>No "I missed it last time" tickets</li>
                 </ul>
             </div>
 
@@ -668,14 +722,16 @@
                 </div>
                 <h3>TELUS</h3>
                 <ul>
-                    <li>Shorter handle time</li>
-                    <li>Lower escalation rate</li>
-                    <li>Consistent ticket documentation</li>
+                    <li>Lower escalation rate · consistent documentation</li>
+                    <li>Shorter handle time · fewer callbacks</li>
                     <li><strong>Direct truck-roll cost reduction</strong></li>
-                    <li>Faster ramp; tribal knowledge captured</li>
                 </ul>
             </div>
         </div>
+
+        <blockquote class="vignette">
+            <em>Tuesday afternoon. The customer has called three times this month about the same disconnect. The tech opens Spectra Nova, runs the Health Check, and walks out twenty minutes later with a printed report explaining exactly what was changed and why.</em> <strong>The customer doesn't call back.</strong>
+        </blockquote>
     </div>
 </section>
 
@@ -742,6 +798,11 @@
 
         <div class="scenario-note">All annual. Truck rolls only. Savings scale linearly with N — a 2,000-tech fleet doubles those numbers. Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds.</div>
 
+        <div class="payback-box">
+            <span class="payback-label">Payback math</span>
+            At <strong>$200/tech/year licensing</strong> (illustrative; real terms negotiated post-pilot), the conservative scenario clears its own cost in <strong>under two months</strong> on a 1,000-tech fleet. Pure savings thereafter.
+        </div>
+
         <div class="pullquote">
             Whatever <code>I</code> turns out to be, plug it back in. The answer is yours, not ours.
         </div>
@@ -760,7 +821,6 @@
                 <h3>Spectra Nova</h3>
                 <ul>
                     <li><span class="vs-icon">✓</span><span>Zero hallucination on matched queries</span></li>
-                    <li><span class="vs-icon">✓</span><span>Deterministic — regression-testable</span></li>
                     <li><span class="vs-icon">✓</span><span>100% offline, 8 audited endpoints</span></li>
                     <li><span class="vs-icon">✓</span><span>Update by adding a KB entry</span></li>
                     <li><span class="vs-icon">✓</span><span>540 cells passing on every commit</span></li>
@@ -770,10 +830,9 @@
                 <h3>On-device LLM</h3>
                 <ul>
                     <li><span class="vs-icon x">✗</span><span>Real hallucination risk</span></li>
-                    <li><span class="vs-icon x">✗</span><span>Stochastic — hard to regression-test</span></li>
                     <li><span class="vs-icon check">✓</span><span>Same offline posture</span></li>
                     <li><span class="vs-icon x">✗</span><span>Update via expensive fine-tune</span></li>
-                    <li><span class="vs-icon x">✗</span><span>"Trust the model"</span></li>
+                    <li><span class="vs-icon x">✗</span><span>Opaque reasoning, no audit trail</span></li>
                 </ul>
             </div>
         </div>
@@ -839,6 +898,7 @@
         <div class="cta">
             <h2>The ask</h2>
             <p class="cta-tagline">Four weeks. One truck crew. A control group. Measure first-time-fix rate and truck-roll time against the control. <strong>Decide from the data.</strong></p>
+            <p class="cta-fineprint"><strong>The pilot is free for the first crew.</strong> License terms negotiated post-pilot from real measured I. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.</p>
             <a href="mailto:kevinmadson@protonmail.com?subject=Spectra%20Nova%20for%20TELUS%20%E2%80%94%20Pilot%20discussion" class="cta-button">Start the conversation →</a>
         </div>
     </div>
