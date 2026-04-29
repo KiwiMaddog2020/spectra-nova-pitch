@@ -471,6 +471,69 @@
             font-size: 0.85rem;
         }
 
+        /* ── Integration tiers ────────────────────────────────────── */
+        .tier-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--s-4);
+            margin: var(--s-6) 0;
+        }
+        .tier {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: var(--s-5);
+            padding: var(--s-5);
+            background: white;
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-md);
+            align-items: start;
+            transition: all 0.25s;
+        }
+        .tier:hover {
+            transform: translateY(-2px);
+            border-color: var(--telus-purple-light);
+            box-shadow: 0 12px 32px rgba(75,40,109,0.10);
+        }
+        .tier-num {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--telus-purple) 0%, var(--telus-purple-light) 100%);
+            color: white;
+            border-radius: var(--r-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .tier-content h3 {
+            color: var(--telus-purple-deep);
+            font-size: 1.25rem;
+            margin-bottom: var(--s-3);
+            display: flex;
+            align-items: center;
+            gap: var(--s-3);
+            flex-wrap: wrap;
+        }
+        .tier-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-section);
+            padding: 0.25em 0.7em;
+            border-radius: 100px;
+        }
+        .tier-content p {
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.65;
+        }
+        @media (max-width: 880px) {
+            .tier { grid-template-columns: 48px 1fr; gap: var(--s-3); padding: var(--s-4); }
+            .tier-num { width: 40px; height: 40px; font-size: 1.25rem; }
+        }
+
         /* ── Responsive ───────────────────────────────────────────── */
         @media (max-width: 880px) {
             .www-grid, .scenarios, .vs-grid { grid-template-columns: 1fr; }
@@ -538,7 +601,7 @@
         </div>
         <p>No tech has a single tool that reads all five in under five minutes. They improvise with <code>netsh</code>, <code>ipconfig</code>, consumer apps, and tribal knowledge — then leave with a guess.</p>
         <div class="pullquote">
-            When the guess is wrong, the truck rolls a second time. At an industry-typical $200 per truck roll, even a 5% cut in repeats across the field force lands in seven figures a year.
+            When the guess is wrong, the truck rolls a second time. At $250 per truck roll, even a 5% cut in repeats across the field force lands in seven figures a year.
         </div>
     </div>
 </section>
@@ -620,18 +683,18 @@
 <section>
     <div class="container">
         <h2>The financial story</h2>
-        <p><strong>Framework, not forecast.</strong> We don't have your operations data. Here's the model.</p>
+        <p><strong>Estimate, not forecast.</strong> We don't have your operations data. Here's the model, anchored where possible in TELUS public reporting and industry benchmarks.</p>
 
         <div class="formula-box">
             <div class="formula-label">Annual truck-roll savings</div>
-            <div class="formula">N × T × 12 × R × <b>I</b> × $200</div>
+            <div class="formula">N × T × 12 × R × <b>I</b> × $250</div>
         </div>
 
         <div class="vars-grid">
             <div class="var-row">
                 <code>N</code>
                 <span class="var-meaning">Your field tech count</span>
-                <span class="var-baseline">yours</span>
+                <span class="var-baseline">~25.2K TELUS employees (2025)</span>
             </div>
             <div class="var-row">
                 <code>T</code>
@@ -649,9 +712,9 @@
                 <span class="var-baseline pilot">the pilot measures this</span>
             </div>
             <div class="var-row">
-                <code>$200</code>
+                <code>$250</code>
                 <span class="var-meaning">Truck-roll cost</span>
-                <span class="var-baseline">industry-typical</span>
+                <span class="var-baseline">industry $150–$600</span>
             </div>
         </div>
 
@@ -662,28 +725,28 @@
         <div class="scenarios">
             <div class="scenario sensitivity">
                 <div class="scenario-label">Sensitivity</div>
-                <div class="scenario-value">$720K</div>
-                <div class="scenario-detail">if I = 5% (half conservative)</div>
+                <div class="scenario-value">$900K</div>
+                <div class="scenario-detail">if I = 5%</div>
             </div>
             <div class="scenario conservative">
                 <div class="scenario-label">Conservative</div>
-                <div class="scenario-value">$1.44M</div>
+                <div class="scenario-value">$1.8M</div>
                 <div class="scenario-detail">if I = 10%</div>
             </div>
             <div class="scenario stretch">
                 <div class="scenario-label stretch-label">Stretch</div>
-                <div class="scenario-value">$3.6M</div>
+                <div class="scenario-value">$4.5M</div>
                 <div class="scenario-detail">if I = 25%</div>
             </div>
         </div>
 
-        <div class="scenario-note">All annual. Truck rolls only. Layer on handle-time and escalation savings — both also pilot-measured — and the model compounds.</div>
+        <div class="scenario-note">All annual. Truck rolls only. Savings scale linearly with N — a 2,000-tech fleet doubles those numbers. Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds.</div>
 
         <div class="pullquote">
             Whatever <code>I</code> turns out to be, plug it back in. The answer is yours, not ours.
         </div>
 
-        <p>Spectra Nova is instrumented end-to-end for the measurement: every query, every diagnostic, every export is logged for the post-pilot review.</p>
+        <p>Spectra Nova is instrumented end-to-end for the measurement: every query, every diagnostic, every export logged for the post-pilot review.</p>
     </div>
 </section>
 
@@ -715,6 +778,42 @@
             </div>
         </div>
         <p style="margin-top: var(--s-6);">If you want LLM-grade reasoning for novel queries, <strong>a Claude API integration is already built in</strong>. Per-tech opt-in via API key. Rate-limited and audit-logged. <strong>Off by default</strong> — entirely Spectra Nova's curated KB until a tech opts in.</p>
+    </div>
+</section>
+
+<!-- ════════════════ INTEGRATION UPSIDE ════════════════ -->
+<section>
+    <div class="container">
+        <h2>The integration upside</h2>
+        <p>What ships <strong>today, standalone</strong> is the field tool described above. Three integration tiers compound the value as TELUS opens access — same architecture, same KB, same UI surface, multiplied ROI.</p>
+
+        <div class="tier-stack">
+            <div class="tier">
+                <div class="tier-num">1</div>
+                <div class="tier-content">
+                    <h3>Modem-embedded <span class="tier-tag">the destination</span></h3>
+                    <p>With a lightweight firmware agent on the modem, Spectra Nova streams live diagnostics — CPU temperature, modulation profile, line attenuation, SNR margin, error counters — straight into the field tool. <strong>"Walk in, plug in, locate, solve."</strong> Many visits resolve before the tech finishes setup.</p>
+                </div>
+            </div>
+            <div class="tier">
+                <div class="tier-num">2</div>
+                <div class="tier-content">
+                    <h3>Backend-connected <span class="tier-tag">the next step</span></h3>
+                    <p>With access to TELUS provisioning, ONT health, account flags, neighborhood-outage signals, and modem fleet inventory, the assistant retrains on TELUS-specific data and handles <strong>line-level issues the customer side can't reveal</strong>: account provisioning gaps, plan-tier mismatches, regional ISP-side outages, ONT silent-fail patterns. The tech walks in already knowing whether the issue is local or upstream.</p>
+                </div>
+            </div>
+            <div class="tier">
+                <div class="tier-num">3</div>
+                <div class="tier-content">
+                    <h3>Field tool <span class="tier-tag">the foundation, already built</span></h3>
+                    <p>WiFi diagnostic with curated KB. Tech sees what's in the room. Bot answers from grounded readings. Zero hallucination, fully offline. <strong>Pilot-ready today.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pullquote" style="margin-top: var(--s-7);">
+            Each tier shares infrastructure. <strong>TELUS pays once for the architecture; the integrations multiply the savings.</strong>
+        </div>
     </div>
 </section>
 

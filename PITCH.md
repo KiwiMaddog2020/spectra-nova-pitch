@@ -13,7 +13,7 @@ A residential WiFi complaint resolves to one of five things:
 
 No tech has a single tool that reads all five in under five minutes. They improvise with `netsh`, `ipconfig`, consumer apps, and tribal knowledge — then leave with a guess.
 
-When the guess is wrong, the truck goes out a second time. **At an industry-conservative $200–400 per truck roll, even a 5 % cut in repeat visits across a province-sized field force lands in seven figures a year.**
+When the guess is wrong, the truck goes out a second time. **At $250 per truck roll, even a 5 % cut in repeat visits across a province-sized field force lands in seven figures a year.**
 
 ---
 
@@ -45,26 +45,27 @@ RF spectrum across all three bands · network list with signal history · channe
 
 ## The financial story
 
-**Framework, not forecast.** We don't have your operations data. Here's the model.
+**Estimate, not forecast.** We don't have your operations data. Here's the model, anchored where possible in TELUS public reporting and industry benchmarks.
 
-**Annual truck-roll savings = N × T × 12 × R × I × $200**
+**Annual truck-roll savings = N × T × 12 × R × I × $250**
 
-- `N` — your field tech count
-- `T` — truck rolls per tech per month (industry typical: 20–40)
-- `R` — current repeat-visit rate (industry typical: 15–25%)
+- `N` — your field tech count *(TELUS reports ~25,200 Canadian employees in 2025; field-tech subset is a fraction)*
+- `T` — truck rolls per tech per month *(industry typical: 20–40)*
+- `R` — current repeat-visit rate *(industry typical: 15–25%)*
 - `I` — repeat-visit reduction Spectra Nova delivers — **the pilot measures this**
-- `$200` — industry-typical truck-roll cost
+- `$250` — TELUS-aligned truck-roll cost *(industry range $150–$600)*
 
 **Illustrative — N = 1,000, T = 30, R = 20%:**
 
-- `I` = 10% (conservative): **$1.44 M / year on truck rolls alone**
-- `I` = 25% (stretch): **$3.6 M / year**
+- `I` = 5% (sensitivity): **$900 K / year on truck rolls alone**
+- `I` = 10% (conservative): **$1.8 M / year**
+- `I` = 25% (stretch): **$4.5 M / year**
 
-**Sensitivity:** even at half the conservative scenario (`I` = 5%), the math still produces **$720 K / year for 1,000 techs.**
+Savings scale linearly with `N`. A 2,000-tech fleet doubles those numbers.
 
-Layer on handle-time and escalation savings — both also pilot-measured — and the model compounds. **Whatever `I` turns out to be, plug it in. The answer is yours, not ours.**
+**Truck rolls only.** Layer on handle-time and escalation reduction — both pilot-measured — and the model compounds. **Whatever `I` turns out to be, plug it back in. The answer is yours, not ours.**
 
-Spectra Nova is instrumented end-to-end for the measurement: every query, every diagnostic, every export is logged for the post-pilot review.
+Spectra Nova is instrumented end-to-end for the measurement: every query, every diagnostic, every export logged for the post-pilot review.
 
 ---
 
@@ -81,6 +82,28 @@ LLMs hallucinate device specs, plan tiers, signal thresholds. Spectra Nova can't
 | Audit story | "540 cells passing on every commit" | "Trust me" |
 
 If you want LLM-grade reasoning for novel queries, **a Claude API integration is already built in**. Per-tech opt-in via API key. Rate-limited and audit-logged. **Off by default** — entirely Spectra Nova's curated KB until a tech opts in.
+
+---
+
+## The integration upside
+
+What ships **today, standalone** is the field tool described above. Three integration tiers compound the value as TELUS opens access — same architecture, same KB, same UI surface, multiplied ROI.
+
+### Tier 1 — Modem-embedded *(the destination)*
+
+With a lightweight firmware agent on the modem, Spectra Nova streams live diagnostics — CPU temperature, modulation profile, line attenuation, SNR margin, error counters — straight into the field tool. **"Walk in, plug in, locate, solve."** Many visits resolve before the tech finishes setup.
+
+### Tier 2 — Backend-connected *(the next step)*
+
+With access to TELUS provisioning, ONT health, account flags, neighborhood-outage signals, and modem fleet inventory, the assistant retrains on TELUS-specific data and handles **line-level issues the customer side can't reveal**: account provisioning gaps, plan-tier mismatches, regional ISP-side outages, ONT silent-fail patterns. The tech walks in already knowing whether the issue is local or upstream.
+
+### Tier 3 — Field tool *(the foundation, already built)*
+
+WiFi diagnostic with curated KB. Tech sees what's in the room. Bot answers from grounded readings. Zero hallucination, fully offline. **Pilot-ready today.**
+
+---
+
+Each tier shares infrastructure. **TELUS pays once for the architecture; the integrations multiply the savings.**
 
 ---
 
