@@ -47,7 +47,7 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 **Annual truck-roll savings = N × T × 12 × R × X × $250**
 
-- `N`: your field tech count *(TELUS: ~25.2K Canadian employees, 2025; field-tech subset is a fraction)*
+- `N`: your field tech count *(TELUS: ~25.2K Canadian employees; field-tech subset is a fraction)*
 - `T`: truck rolls per tech per month *(industry typical: 20–40)*
 - `R`: current repeat-visit rate *(industry typical: 15–25%)*
 - `X`: repeat-visit reduction Spectra Nova delivers. **The pilot measures this.**
