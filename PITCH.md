@@ -61,8 +61,6 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 Savings scale linearly with `N`. A 2,000-tech fleet doubles those numbers.
 
-**Payback math:** at $200/tech/year licensing *(illustrative; real terms negotiated post-pilot)*, the conservative scenario clears its own cost in **under two months** on a 1,000-tech fleet. Pure savings thereafter.
-
 **Truck rolls only.** Layer on handle-time and escalation reduction (both pilot-measured) and the model compounds. **Whatever `X` turns out to be, plug it back in. The answer is yours, not ours.**
 
 Spectra Nova is instrumented end-to-end for the measurement. Every query and diagnostic is logged, ready for the post-pilot review.
@@ -136,7 +134,7 @@ The bot doesn't know what it's like to walk into a customer's house at 4 PM on a
 
 **Four weeks. One truck crew. A control group.** Instrument the queries and the outcomes. Measure first-time-fix rate and truck-roll time against the control. **Decide from the data.**
 
-**The pilot is free for the first crew.** License terms negotiated post-pilot from real measured `X`. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
+Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
 
 ---
 

@@ -1360,9 +1360,6 @@
             <div class="calc-output">
                 <div class="calc-label">Annual truck-roll savings</div>
                 <div class="calc-value" id="calc-savings">$1.80M</div>
-                <div class="calc-fineprint">
-                    At <strong>$200/tech/yr</strong> licensing, payback in <strong id="calc-payback">1.3</strong> months.
-                </div>
             </div>
         </div>
 
@@ -1490,7 +1487,7 @@
         <div class="cta">
             <h2>The ask</h2>
             <p class="cta-tagline">Four weeks. One truck crew. A control group. Measure first-time-fix rate and truck-roll time against the control. <strong>Decide from the data.</strong></p>
-            <p class="cta-fineprint"><strong>The pilot is free for the first crew.</strong> License terms negotiated post-pilot from real measured X. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.</p>
+            <p class="cta-fineprint">Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.</p>
             <a href="mailto:kevinmadson@protonmail.com?subject=Spectra%20Nova%20for%20TELUS%20%E2%80%94%20Pilot%20discussion" class="cta-button">Start the conversation →</a>
         </div>
     </div>
@@ -1511,7 +1508,6 @@
         var cOut = document.getElementById('calc-c-out');
         var xOut = document.getElementById('calc-x-out');
         var savingsOut = document.getElementById('calc-savings');
-        var paybackOut = document.getElementById('calc-payback');
 
         function fmtMoney(v) {
             if (v >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
@@ -1526,8 +1522,6 @@
             var cv = +c.value;
             var xv = +x.value / 100;
             var savings = nv * tv * 12 * rv * xv * cv;
-            var licenseCost = nv * 200;
-            var payback = savings > 0 ? (licenseCost / savings) * 12 : Infinity;
 
             nOut.textContent = nv.toLocaleString();
             tOut.textContent = tv;
@@ -1535,7 +1529,6 @@
             cOut.textContent = '$' + cv;
             xOut.textContent = x.value + '%';
             savingsOut.textContent = fmtMoney(savings) + ' / yr';
-            paybackOut.textContent = isFinite(payback) ? payback.toFixed(1) : '—';
         }
 
         [n, t, r, c, x].forEach(function(el) {
