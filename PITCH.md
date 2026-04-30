@@ -45,25 +45,25 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 **Estimate, not forecast.** We don't have your operations data. Here's the model, anchored where possible in TELUS public reporting and industry benchmarks.
 
-**Annual truck-roll savings = N × T × 12 × R × I × $250**
+**Annual truck-roll savings = N × T × 12 × R × X × $250**
 
 - `N`: your field tech count *(TELUS: ~25.2K Canadian employees, 2025; field-tech subset is a fraction)*
 - `T`: truck rolls per tech per month *(industry typical: 20–40)*
 - `R`: current repeat-visit rate *(industry typical: 15–25%)*
-- `I`: repeat-visit reduction Spectra Nova delivers. **The pilot measures this.**
+- `X`: repeat-visit reduction Spectra Nova delivers. **The pilot measures this.**
 - `$250`: TELUS-aligned truck-roll cost *(industry range $150–$600)*
 
 **Illustrative: N = 1,000, T = 30, R = 20%**
 
-- `I` = 5% (sensitivity): **$900 K / year on truck rolls alone**
-- `I` = 10% (conservative): **$1.8 M / year**
-- `I` = 25% (stretch): **$4.5 M / year**
+- `X` = 5% (sensitivity): **$900 K / year on truck rolls alone**
+- `X` = 10% (conservative): **$1.8 M / year**
+- `X` = 25% (stretch): **$4.5 M / year**
 
 Savings scale linearly with `N`. A 2,000-tech fleet doubles those numbers.
 
 **Payback math:** at $200/tech/year licensing *(illustrative; real terms negotiated post-pilot)*, the conservative scenario clears its own cost in **under two months** on a 1,000-tech fleet. Pure savings thereafter.
 
-**Truck rolls only.** Layer on handle-time and escalation reduction (both pilot-measured) and the model compounds. **Whatever `I` turns out to be, plug it back in. The answer is yours, not ours.**
+**Truck rolls only.** Layer on handle-time and escalation reduction (both pilot-measured) and the model compounds. **Whatever `X` turns out to be, plug it back in. The answer is yours, not ours.**
 
 Spectra Nova is instrumented end-to-end for the measurement. Every query and diagnostic is logged, ready for the post-pilot review.
 
@@ -136,7 +136,7 @@ The bot doesn't know what it's like to walk into a customer's house at 4 PM on a
 
 **Four weeks. One truck crew. A control group.** Instrument the queries and the outcomes. Measure first-time-fix rate and truck-roll time against the control. **Decide from the data.**
 
-**The pilot is free for the first crew.** License terms negotiated post-pilot from real measured `I`. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
+**The pilot is free for the first crew.** License terms negotiated post-pilot from real measured `X`. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
 
 ---
 

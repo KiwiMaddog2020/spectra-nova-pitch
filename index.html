@@ -1269,7 +1269,7 @@
 
         <div class="formula-box">
             <div class="formula-label">Annual truck-roll savings</div>
-            <div class="formula">N × T × 12 × R × <b>I</b> × $250</div>
+            <div class="formula">N × T × 12 × R × <b>X</b> × $250</div>
         </div>
 
         <div class="vars-grid">
@@ -1289,7 +1289,7 @@
                 <span class="var-baseline">industry: 15–25%</span>
             </div>
             <div class="var-row">
-                <code>I</code>
+                <code>X</code>
                 <span class="var-meaning">Repeat-visit reduction Spectra Nova delivers</span>
                 <span class="var-baseline pilot">the pilot measures this</span>
             </div>
@@ -1324,9 +1324,9 @@
                     <output id="calc-c-out" for="calc-c">$250</output>
                 </div>
                 <div class="calc-row hilite">
-                    <label for="calc-i">Repeat-visit reduction Spectra Nova delivers <code>I</code></label>
-                    <input type="range" id="calc-i" min="0" max="50" step="1" value="10" aria-describedby="calc-i-out">
-                    <output id="calc-i-out" for="calc-i">10%</output>
+                    <label for="calc-x">Repeat-visit reduction Spectra Nova delivers <code>X</code></label>
+                    <input type="range" id="calc-x" min="0" max="50" step="1" value="10" aria-describedby="calc-x-out">
+                    <output id="calc-x-out" for="calc-x">10%</output>
                 </div>
             </div>
             <div class="calc-output">
@@ -1346,7 +1346,7 @@
         </div>
 
         <div class="pullquote">
-            Whatever <code>I</code> turns out to be, plug it back in. The answer is yours, not ours.
+            Whatever <code>X</code> turns out to be, plug it back in. The answer is yours, not ours.
         </div>
 
         <p>Spectra Nova is instrumented end-to-end for the measurement. Every query and diagnostic is logged, ready for the post-pilot review.</p>
@@ -1463,7 +1463,7 @@
         <div class="cta">
             <h2>The ask</h2>
             <p class="cta-tagline">Four weeks. One truck crew. A control group. Measure first-time-fix rate and truck-roll time against the control. <strong>Decide from the data.</strong></p>
-            <p class="cta-fineprint"><strong>The pilot is free for the first crew.</strong> License terms negotiated post-pilot from real measured I. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.</p>
+            <p class="cta-fineprint"><strong>The pilot is free for the first crew.</strong> License terms negotiated post-pilot from real measured X. Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.</p>
             <a href="mailto:kevinmadson@protonmail.com?subject=Spectra%20Nova%20for%20TELUS%20%E2%80%94%20Pilot%20discussion" class="cta-button">Start the conversation →</a>
         </div>
     </div>
@@ -1476,13 +1476,13 @@
         var t = document.getElementById('calc-t');
         var r = document.getElementById('calc-r');
         var c = document.getElementById('calc-c');
-        var i = document.getElementById('calc-i');
-        if (!n || !t || !r || !c || !i) return;
+        var x = document.getElementById('calc-x');
+        if (!n || !t || !r || !c || !x) return;
         var nOut = document.getElementById('calc-n-out');
         var tOut = document.getElementById('calc-t-out');
         var rOut = document.getElementById('calc-r-out');
         var cOut = document.getElementById('calc-c-out');
-        var iOut = document.getElementById('calc-i-out');
+        var xOut = document.getElementById('calc-x-out');
         var savingsOut = document.getElementById('calc-savings');
         var paybackOut = document.getElementById('calc-payback');
 
@@ -1497,8 +1497,8 @@
             var tv = +t.value;
             var rv = +r.value / 100;
             var cv = +c.value;
-            var iv = +i.value / 100;
-            var savings = nv * tv * 12 * rv * iv * cv;
+            var xv = +x.value / 100;
+            var savings = nv * tv * 12 * rv * xv * cv;
             var licenseCost = nv * 200;
             var payback = savings > 0 ? (licenseCost / savings) * 12 : Infinity;
 
@@ -1506,12 +1506,12 @@
             tOut.textContent = tv;
             rOut.textContent = r.value + '%';
             cOut.textContent = '$' + cv;
-            iOut.textContent = i.value + '%';
+            xOut.textContent = x.value + '%';
             savingsOut.textContent = fmtMoney(savings) + ' / yr';
             paybackOut.textContent = isFinite(payback) ? payback.toFixed(1) : '—';
         }
 
-        [n, t, r, c, i].forEach(function(el) {
+        [n, t, r, c, x].forEach(function(el) {
             el.addEventListener('input', recalc);
         });
         recalc();
