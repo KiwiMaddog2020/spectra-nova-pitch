@@ -912,7 +912,13 @@
             text-align: right;
             line-height: 1;
         }
-        .calc-row.hilite { background: rgba(102,204,0,0.06); border-radius: var(--r-sm); padding: var(--s-3); }
+        .calc-row.hilite {
+            background: rgba(102,204,0,0.06);
+            border-radius: var(--r-sm);
+            padding: var(--s-3);
+            margin-left: calc(-1 * var(--s-3));
+            margin-right: calc(-1 * var(--s-3));
+        }
         .calc-row.hilite label { color: var(--accent-green); font-weight: 700; }
         .calc-row.hilite output { font-size: 1.6rem; }
         .calc-output {
