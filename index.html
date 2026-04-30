@@ -594,6 +594,145 @@
             .tier-num { width: 40px; height: 40px; font-size: 1.25rem; }
         }
 
+        /* ── Demo bot ────────────────────────────────────────────── */
+        .demo-bot {
+            background: #1A1422;
+            border: 1.5px solid #2D1F3D;
+            border-radius: var(--r-md);
+            max-width: 760px;
+            margin: var(--s-6) auto 0;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(75,40,109,0.20);
+        }
+        .demo-header {
+            background: linear-gradient(135deg, var(--telus-purple-deep), var(--telus-purple));
+            padding: var(--s-3) var(--s-5);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: var(--s-3);
+        }
+        .demo-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 8px rgba(102,204,0,0.6);
+        }
+        .demo-title { font-weight: 700; font-size: 1.05rem; }
+        .demo-mode {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.55);
+            margin-left: auto;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .demo-context {
+            background: rgba(102,204,0,0.05);
+            border-left: 3px solid var(--accent-green);
+            padding: var(--s-3) var(--s-5);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.7;
+        }
+        .demo-context strong { color: rgba(255,255,255,0.6); font-weight: 500; margin-right: 0.4em; }
+        .demo-good { color: var(--accent-green); font-weight: 700; }
+        .demo-warn { color: #FFB74D; font-weight: 700; }
+        .demo-messages {
+            padding: var(--s-4) var(--s-5);
+            min-height: 160px;
+            max-height: 420px;
+            overflow-y: auto;
+            color: white;
+        }
+        .demo-msg {
+            padding: var(--s-3) var(--s-4);
+            border-radius: var(--r-sm);
+            margin-bottom: var(--s-3);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+        .demo-msg:last-child { margin-bottom: 0; }
+        .demo-msg-user {
+            background: linear-gradient(135deg, var(--telus-purple), var(--telus-purple-light));
+            margin-left: 25%;
+            color: white;
+            font-weight: 600;
+            text-align: right;
+        }
+        .demo-msg-bot {
+            background: rgba(255,255,255,0.05);
+            margin-right: 10%;
+            color: rgba(255,255,255,0.92);
+        }
+        .demo-msg-bot strong { color: var(--accent-green); font-weight: 700; }
+        .demo-msg-bot code {
+            background: rgba(102,204,0,0.15);
+            color: var(--accent-green);
+            padding: 0.05em 0.4em;
+            border-radius: 4px;
+            font-size: 0.88em;
+        }
+        .demo-msg-bot ul { margin: var(--s-2) 0 0 var(--s-5); padding: 0; }
+        .demo-msg-bot li { margin-bottom: var(--s-1); }
+        .demo-typing {
+            display: flex;
+            gap: 5px;
+            padding: var(--s-3) var(--s-4);
+            margin-right: 10%;
+            margin-bottom: var(--s-3);
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--r-sm);
+            width: fit-content;
+        }
+        .demo-typing span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            animation: typing-bounce 1.4s infinite ease-in-out;
+        }
+        .demo-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .demo-typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+        .demo-chips {
+            padding: var(--s-3) var(--s-5) var(--s-4);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--s-2);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.20);
+        }
+        .demo-chip {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            padding: 0.5em 1.1em;
+            background: transparent;
+            border: 1px solid rgba(102,204,0,0.6);
+            color: var(--accent-green);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .demo-chip:hover:not(:disabled) {
+            background: rgba(102,204,0,0.12);
+            border-color: var(--accent-green);
+        }
+        .demo-chip:disabled { opacity: 0.35; cursor: not-allowed; }
+        .demo-chip-reset {
+            border-color: rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.6);
+            margin-left: auto;
+        }
+        .demo-chip-reset:hover:not(:disabled) {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.4);
+        }
+
         /* ── Gallery ─────────────────────────────────────────────── */
         .gallery {
             display: grid;
@@ -1025,6 +1164,37 @@
     </div>
 </section>
 
+<!-- ════════════════ DEMO BOT ════════════════ -->
+<section>
+    <div class="container">
+        <h2>Try the assistant</h2>
+        <p>A scripted demo of the Spectra Nova chat panel. Sample network context shown at top; tap a question below to see how the bot grounds its answer in those exact numbers.</p>
+        <div class="demo-bot">
+            <div class="demo-header">
+                <div class="demo-dot"></div>
+                <span class="demo-title">Spectra Assistant</span>
+                <span class="demo-mode">Built-in · Demo</span>
+            </div>
+            <div class="demo-context">
+                <div><strong>Connected:</strong> Customer-WiFi · CH 161 · 5 GHz High · <span class="demo-good">−52 dBm</span></div>
+                <div><strong>Last test:</strong> 192 Mbps down / 52 Mbps up · ping 58 ms · channel congestion <span class="demo-warn">60 %</span></div>
+                <div><strong>Devices:</strong> 27 discovered · <span class="demo-warn">3 dropping</span></div>
+            </div>
+            <div class="demo-messages" id="demo-messages">
+                <div class="demo-msg demo-msg-bot">Hey! I can see your WiFi scan, signal, congestion, speed, and which devices keep dropping. Tap a question below.</div>
+            </div>
+            <div class="demo-chips" id="demo-chips">
+                <button class="demo-chip" data-q="why-slow">Why is it slow?</button>
+                <button class="demo-chip" data-q="signal">Check my signal</button>
+                <button class="demo-chip" data-q="channel">Channel advice</button>
+                <button class="demo-chip" data-q="dropping">What's dropping?</button>
+                <button class="demo-chip" data-q="coverage">Coverage check</button>
+                <button class="demo-chip demo-chip-reset" data-q="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <dialog id="lightbox" aria-label="Gallery lightbox">
     <button id="lightbox-close" aria-label="Close">×</button>
     <img id="lightbox-img" src="" alt="">
@@ -1334,9 +1504,9 @@
 
             nOut.textContent = nv.toLocaleString();
             tOut.textContent = tv;
-            rOut.textContent = rv * 100 + '%';
+            rOut.textContent = r.value + '%';
             cOut.textContent = '$' + cv;
-            iOut.textContent = iv * 100 + '%';
+            iOut.textContent = i.value + '%';
             savingsOut.textContent = fmtMoney(savings) + ' / yr';
             paybackOut.textContent = isFinite(payback) ? payback.toFixed(1) : '—';
         }
@@ -1345,6 +1515,73 @@
             el.addEventListener('input', recalc);
         });
         recalc();
+    })();
+
+    // Demo bot
+    (function() {
+        var msgs = document.getElementById('demo-messages');
+        var chips = document.getElementById('demo-chips');
+        if (!msgs || !chips) return;
+
+        var responses = {
+            'why-slow': '<strong>Looking at the live numbers:</strong> signal is excellent at <code>−52 dBm</code>, but you\'re on channel 161 with <code>60 % congestion</code> from 4 nearby networks. Your download (<code>192 Mbps</code>) is below the fiber-plan ceiling, which fits the channel-congestion pattern.<br><br><strong>Recommend:</strong> switch to channel 100, currently clear (zero competing networks). That should give back ~25 % throughput.<br><br><strong>Ruled out:</strong> WAN ping is <code>58 ms</code>, normal for fiber. The bottleneck is local, not upstream.',
+            'signal': '<strong>Signal: −52 dBm</strong> on 5 GHz High, channel 161. That\'s "Excellent" on our scale (anything above <code>−60 dBm</code>).<br><br>Connected uptime: 1h 6m, no drops at the radio level.<br><br>If the customer is reporting issues, the cause is downstream: check the channel congestion (<code>60 %</code> on 161) or run a per-room coverage walk for dead-zone locations.',
+            'channel': '<strong>You\'re on channel 161:</strong> <code>60 % congested</code>, 4 nearby networks competing. Three of them are at strong signal (−33, −35, −38 dBm), so they\'re directly in the way.<br><br><strong>Channel 100</strong> is currently clear: zero competing networks, no overlap from adjacent channels.<br><br>In the modem GUI: <em>Wireless &gt; Advanced &gt; Channel</em>. Switch from 161 to 100 and the customer will see immediate improvement.',
+            'dropping': '<strong>Quick Check (30 s sample):</strong> 19 healthy, 5 degraded, 3 warning.<br><br>Repeat offenders:<ul><li><code>192.168.1.94</code> (Unknown device) dropped 4 times in last 60 s. Consistent with WiFi connectivity issues. Check signal at its physical location.</li><li><code>192.168.1.67</code> high latency at 235 ms. Likely far from router or on a congested channel.</li><li><code>192.168.1.73</code> high latency at 258 ms. Same pattern.</li></ul>For repeat-offender confirmation over a longer window, run Extended Monitor (5 min).',
+            'coverage': '<strong>Last Coverage Map:</strong> 1,200 sq ft, 4 sample points walked.<br><br><strong>Overall score: 92 / 100.</strong><br><br>Per-room verdicts:<ul><li>Living room: <code>−52 dBm</code> (Excellent)</li><li>Hallway: <code>−64 dBm</code> (Great)</li><li>Bedroom 2: <code>−68 dBm</code> (Okay)</li><li>Garage: <code>−82 dBm</code> (Poor) — dead zone</li></ul><strong>Recommendation:</strong> mesh node at the hallway midpoint. Log-distance path-loss model puts ideal placement 15 ft from the modem at a height of ~5 ft.'
+        };
+
+        var labels = {
+            'why-slow': 'Why is it slow?',
+            'signal': 'Check my signal',
+            'channel': 'Channel advice',
+            'dropping': 'What\'s dropping?',
+            'coverage': 'Coverage check'
+        };
+
+        var initialMsg = msgs.innerHTML;
+
+        function appendMsg(html, isUser) {
+            var div = document.createElement('div');
+            div.className = 'demo-msg ' + (isUser ? 'demo-msg-user' : 'demo-msg-bot');
+            div.innerHTML = html;
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function showTyping() {
+            var typing = document.createElement('div');
+            typing.className = 'demo-typing';
+            typing.innerHTML = '<span></span><span></span><span></span>';
+            msgs.appendChild(typing);
+            msgs.scrollTop = msgs.scrollHeight;
+            return typing;
+        }
+
+        chips.addEventListener('click', function(e) {
+            var btn = e.target.closest('.demo-chip');
+            if (!btn || btn.disabled) return;
+            var q = btn.dataset.q;
+
+            if (q === 'reset') {
+                msgs.innerHTML = initialMsg;
+                chips.querySelectorAll('.demo-chip').forEach(function(c) { c.disabled = false; });
+                return;
+            }
+
+            var label = labels[q];
+            var response = responses[q];
+            if (!label || !response) return;
+
+            appendMsg(label, true);
+            btn.disabled = true;
+
+            var typing = showTyping();
+            setTimeout(function() {
+                typing.remove();
+                appendMsg(response, false);
+            }, 700 + Math.random() * 500);
+        });
     })();
 
     // Gallery lightbox
