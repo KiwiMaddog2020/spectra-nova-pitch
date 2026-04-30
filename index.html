@@ -1459,7 +1459,6 @@
             <div class="badge"><strong>540-cell</strong> scenario regression matrix</div>
             <div class="badge"><strong>9</strong> supported languages</div>
             <div class="badge"><strong>338</strong> KB entries · 16 categories</div>
-            <div class="badge"><strong>0</strong> compiler warnings on Release</div>
         </div>
         <p style="margin-top: var(--s-6);">Built solo. Independent. Ready to license. Architecture and methodology available on request.</p>
     </div>
@@ -1602,6 +1601,24 @@
                 typing.remove();
                 appendMsg(response, false);
             }, 700 + Math.random() * 500);
+        });
+    })();
+
+    // CTA mailto debounce: macOS Safari sometimes fires a stale click after
+    // Mail.app returns focus to the browser, which re-launches Mail. Block
+    // rapid re-fires within a 3 s window.
+    (function() {
+        var ctaBtn = document.querySelector('.cta-button');
+        if (!ctaBtn) return;
+        var locked = false;
+        ctaBtn.addEventListener('click', function(e) {
+            if (locked) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            locked = true;
+            setTimeout(function() { locked = false; }, 3000);
         });
     })();
 
