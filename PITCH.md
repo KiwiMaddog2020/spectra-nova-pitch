@@ -2,7 +2,7 @@
 
 **One screen. Five faults. No second visit.**
 
-Customers win. Techs win. TELUS wins.
+*A 9-year field tech's take on field tooling, scoped end-to-end. Portfolio piece for a Senior Business Analyst candidacy at TELUS.*
 
 ---
 
@@ -124,17 +124,19 @@ Architecture and methodology available on request.
 
 ## Built from the field
 
-I'm Kevin Madson. Nine years as a field technician before this. Every analyzer, every KB entry, every *"why does this break this way"* assumption in Spectra Nova traces back to a real customer visit. A real escalation chain. A real *"I knew it, but I couldn't prove it"* moment. **Built by a tech, for techs.**
+I'm Kevin Madson. Nine years as a field technician. **Currently applying for the Senior Business Analyst role at TELUS** — Spectra Nova is the portfolio piece I built to show how I think.
+
+Every analyzer, every KB entry, every *"why does this break this way"* assumption in Spectra Nova traces back to a real customer visit. A real escalation chain. A real *"I knew it, but I couldn't prove it"* moment. **Built by a tech, for techs.**
 
 The bot doesn't know what it's like to walk into a customer's house at 4 PM on a Friday. **The person who built it does.**
 
 ---
 
-## The ask
+## Let's talk
 
-**Four weeks. One truck crew. A control group.** Instrument the queries and the outcomes. Measure first-time-fix rate and truck-roll time against the control. **Decide from the data.**
+Spectra Nova is the portfolio piece. The thinking behind it — scoping the problem, modeling the cost, sequencing the integration phases, instrumenting for measurement — is the thinking I'd bring to the **Senior Business Analyst** role.
 
-Email below. Happy to walk through the architecture, the regression matrix, or the integration roadmap in thirty minutes.
+Email below. Happy to walk through any of it — architecture, regression methodology, integration roadmap, or the role itself — in thirty minutes.
 
 ---
 
