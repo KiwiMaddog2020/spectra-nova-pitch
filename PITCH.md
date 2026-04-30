@@ -61,7 +61,7 @@ When the guess is wrong, the truck goes out a second time. **At $250 per truck r
 
 Savings scale linearly with `N`. A 2,000-tech fleet doubles those numbers.
 
-**Truck rolls only.** Layer on handle-time and escalation reduction (both pilot-measured) and the model compounds. **Whatever `X` turns out to be, plug it back in. The answer is yours, not ours.**
+**Truck rolls only.** Layer on handle-time and escalation reduction (both pilot-measured) and the model compounds. **Whatever `X` turns out to be, plug it back in. The answer is yours.**
 
 Spectra Nova is instrumented end-to-end for the measurement. Every query and diagnostic is logged, ready for the post-pilot review.
 
